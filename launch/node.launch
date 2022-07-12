@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+    <!-- <include file=/> -->
+    
+    <node name="pong" pkg="turtle_pong" type="pong" output="screen"/>
+    <node name="turtle_teleop_key" pkg="turtle_pong" type="turtle_teleop_key" output="screen"/>
+    <node name="ball" pkg="turtle_pong" type="ball" output="screen"/>
+</launch>

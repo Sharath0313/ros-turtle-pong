@@ -9,6 +9,8 @@ project(turtle_pong)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
   roscpp
+  std_msgs
+  std_srvs
 )
 
 ## System dependencies are found with CMake's conventions
@@ -131,7 +133,9 @@ include_directories(
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-# add_executable(${PROJECT_NAME}_node src/ros-turtle-pong_node.cpp)
+add_executable(ball src/ball.cpp)
+add_executable(pong src/pong.cpp)
+add_executable(turtle_teleop_key src/turtle_teleop_key.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -144,9 +148,12 @@ include_directories(
 # add_dependencies(${PROJECT_NAME}_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
-#target_link_libraries(${PROJECT_NAME}_node
-#  ${catkin_LIBRARIES}
-#)
+target_link_libraries(ball
+ ${catkin_LIBRARIES})
+target_link_libraries(pong
+ ${catkin_LIBRARIES})
+target_link_libraries(turtle_teleop_key
+ ${catkin_LIBRARIES})
 
 #############
 ## Install ##

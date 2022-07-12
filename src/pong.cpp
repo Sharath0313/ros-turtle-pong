@@ -58,8 +58,8 @@ int main(int argc, char **argv)
 
     ros::Subscriber ball_color_sub = nh.subscribe<turtlesim::Color>("/ball/color_sensor", 10, colorSensorCallback);
     
-    //ros::Publisher pub = nh.advertise<geometry_msgs::Twist>("/turtle1/cmd_vel", 1);
-    //geometry_msgs::Twist twist;
+    ros::Publisher pub = nh.advertise<geometry_msgs::Twist>("/turtle1/cmd_vel", 1);
+    geometry_msgs::Twist twist;
 
     ros::Rate loop_rate(100);
 
